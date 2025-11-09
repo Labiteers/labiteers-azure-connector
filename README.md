@@ -20,5 +20,5 @@ No local copy needed.
 Great for team sharing and version control.
 
 
-https://raw.githubusercontent.com/<GitHubUsername>/<RepositoryName>/<BranchName>/<FilePath>
+https://raw.githubusercontent.com/Labiteers/labiteers-azure-connector/master/main.ps1
 

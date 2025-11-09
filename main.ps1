@@ -39,6 +39,33 @@ $secret = az ad app credential reset --id $app.appId --query "{clientSecret:pass
 # Get tenant ID
 $tenantId = az account show --query tenantId --output tsv
 
+# Create a Service Principal for the app (if not already created)
+$existingSp = az ad sp list --filter "appId eq '$($app.appId)'" --query "[0].id" -o tsv
+if (-not $existingSp) {
+    Write-Host "Creating Service Principal for app..."
+    $sp = az ad sp create --id $app.appId --query "{objectId:id}" --output json | ConvertFrom-Json
+    $spId = $sp.objectId
+} else {
+    Write-Host "Service Principal already exists."
+    $spId = $existingSp
+}
+
+# Check if the 'Contributor' role is already assigned
+Write-Host "Checking if 'Contributor' role is already assigned to the Labiteers app..."
+$existingRole = az role assignment list `
+    --assignee $app.appId `
+    --role "Contributor" `
+    --scope "/subscriptions/$subscriptionId" `
+    --query "[0].roleDefinitionName" -o tsv
+
+if ($existingRole -eq "Contributor") {
+    Write-Host "'Contributor' role is already assigned to this app. Skipping..."
+} else {
+    Write-Host "Assigning 'Contributor' role to the Labiteers app..."
+    az role assignment create --assignee $app.appId --role "Contributor" --scope "/subscriptions/$subscriptionId"
+    Write-Host "Role assignment complete."
+}
+
 # Output app info
 Write-Host "=============================="
 Write-Host "App Name: $appName"
