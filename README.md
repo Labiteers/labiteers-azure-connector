@@ -1,6 +1,6 @@
-# 🌩️ Labiteers Cloud Setup Tool
+# 🌩️ Labiteers Azure Connector Tool
 
-The **Labiteers Cloud Setup Tool** is a PowerShell-based automation script that prepares your Microsoft Azure environment for use with the **Labiteers platform**.  
+The **Labiteers Azure Connector Tool** is a PowerShell-based automation script that prepares your Microsoft Azure environment for use with the **Labiteers platform**.  
 It automatically registers the required Azure application, configures permissions, and ensures your subscription is ready for smooth integration.
 
 ---
@@ -20,7 +20,7 @@ When you run this tool, it performs the following steps automatically:
 7. **Grants “Contributor” access** to the Labiteers app on the selected subscription.
 8. **Saves all details** (App ID, Tenant ID, Subscription ID, Secret, etc.) to a JSON file for future reference.
 
-At the end of the process, your Azure account will be fully configured to work with the **Labiteers Cloud Management Platform**.
+At the end of the process, your Azure account will be fully configured to work with the **Labiteers platform**. Please make sure to delete the output file afterward.
 
 ---
 
