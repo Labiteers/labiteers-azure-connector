@@ -35,3 +35,14 @@ Before running the script, ensure that:
 To check if you’re logged in, run:
 ```powershell
 az login
+
+---
+
+## 🧠 Usage
+
+You can run the Labiteers Azure Connector directly in your **Azure Cloud Shell** by executing the following commands:
+
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Labiteers/labiteers-azure-connector/master/main.ps1" -OutFile "./LabiteersAppSetup.ps1"
+
+./LabiteersAppSetup.ps1
