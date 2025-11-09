@@ -45,5 +45,8 @@ You can run the Labiteers Azure Connector directly in your **Azure Cloud Shell**
 
 ```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Labiteers/labiteers-azure-connector/master/main.ps1" -OutFile "./LabiteersAppSetup.ps1"
+```
 
+```
 ./LabiteersAppSetup.ps1
+```
