@@ -1,6 +1,7 @@
 # Variables
 $appName = "Labiteers"
 $outputFile = "LabiteersAppDetails.json"
+$redirectUri = "https://labiteers.com/auth/azure-callback"
 
 # List all subscriptions for the logged-in account
 $subscriptions = az account list --query "[].{Name:name, Id:id}" -o json | ConvertFrom-Json
@@ -28,6 +29,10 @@ az account set --subscription $subscriptionId
 # Create app registration
 $app = az ad app create --display-name $appName --query "{appId:appId, id:id}" --output json | ConvertFrom-Json
 
+# Set web redirect URI
+az ad app update --id $app.appId --web-redirect-uris $redirectUri
+Write-Host "Web redirect URI set to: $redirectUri"
+
 # Create client secret
 $secret = az ad app credential reset --id $app.appId --query "{clientSecret:password}" --output json | ConvertFrom-Json
 
@@ -41,6 +46,7 @@ Write-Host "Application (client) ID: $($app.appId)"
 Write-Host "Directory (tenant) ID: $tenantId"
 Write-Host "Client Secret: $($secret.clientSecret)"
 Write-Host "Subscription ID: $subscriptionId"
+Write-Host "Redirect URI: $redirectUri"
 Write-Host "==============================`n"
 
 # Array of required resource providers
@@ -76,6 +82,7 @@ $appDetails = @{
     TenantId        = $tenantId
     SubscriptionId  = $subscriptionId
     ClientSecret    = $secret.clientSecret
+    RedirectUri     = $redirectUri
 }
 
 $appDetails | ConvertTo-Json | Out-File -FilePath $outputFile -Encoding utf8
