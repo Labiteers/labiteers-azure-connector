@@ -1,6 +1,6 @@
 # Variables
 $appName = "Labiteers"
-$outputFile = "LabiteersAppDetails.json"
+$outputFile = "LabiteersCloudSettings.json"
 $redirectUri = "https://labiteers.com/auth/azure-callback"
 
 # List all subscriptions for the logged-in account
