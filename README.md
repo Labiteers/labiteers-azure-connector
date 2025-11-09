@@ -35,6 +35,7 @@ Before running the script, ensure that:
 To check if you’re logged in, run:
 ```powershell
 az login
+```
 
 ---
 
