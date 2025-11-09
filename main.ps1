@@ -68,12 +68,10 @@ if ($existingRole -eq "Contributor") {
 
 # Output app info
 Write-Host "=============================="
-Write-Host "App Name: $appName"
 Write-Host "Application (client) ID: $($app.appId)"
 Write-Host "Directory (tenant) ID: $tenantId"
 Write-Host "Client Secret: $($secret.clientSecret)"
 Write-Host "Subscription ID: $subscriptionId"
-Write-Host "Redirect URI: $redirectUri"
 Write-Host "==============================`n"
 
 # Array of required resource providers
@@ -104,12 +102,10 @@ Write-Host "`nAll required resource providers are registered and ready."
 
 # Save details to a JSON file
 $appDetails = @{
-    AppName         = $appName
     ApplicationId   = $app.appId
     TenantId        = $tenantId
     SubscriptionId  = $subscriptionId
     ClientSecret    = $secret.clientSecret
-    RedirectUri     = $redirectUri
 }
 
 $appDetails | ConvertTo-Json | Out-File -FilePath $outputFile -Encoding utf8
