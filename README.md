@@ -45,7 +45,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Labiteers/labiteers-az
 ./LabiteersAppSetup.ps1
 ```
 
-2) Copy and paste the IDs from the **LabiteersCloudSettings.json** file into their respective fields in the **Cloud Settings** menu. Please note that you can choose any string for the **Username**.
+2) Copy and paste the IDs from the **LabiteersCloudSettings.json** file into their respective fields in the **Cloud Settings** menu. Please note that you can choose any string for the **Username**. After filling in all the fields, click **Save Settings**.
 
 ![Cloud Settings Menu](assets/configure_cloud_settings.png)
 
