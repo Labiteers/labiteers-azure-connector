@@ -30,18 +30,12 @@ Before running the script, ensure that:
 
 - You have an **active Pay-As-You-Go Azure subscription**.
 - You have **permissions to create App Registrations and role assignments** (typically an Owner or User Access Administrator).
-- You have the **Azure CLI** installed and are logged in.
-
-To check if you’re logged in, run:
-```powershell
-az login
-```
 
 ---
 
 ## 🧠 Usage
 
-You can run the Labiteers Azure Connector directly in your **Azure Cloud Shell** by executing the following commands:
+1) Run the Labiteers Azure Connector directly in your **Azure Cloud Shell** by executing the following commands:
 
 ```powershell
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Labiteers/labiteers-azure-connector/master/main.ps1" -OutFile "./LabiteersAppSetup.ps1"
@@ -49,4 +43,14 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Labiteers/labiteers-az
 
 ```
 ./LabiteersAppSetup.ps1
+```
+
+2) Copy and paste the IDs from the **LabiteersCloudSettings.json** file into their respective fields in the **Cloud Settings** menu.
+
+![Cloud Settings Menu](assets/configure_cloud_settings.png)
+
+3) Delete the **LabiteersCloudSettings.json** file:
+
+```powershell
+rm LabiteersCloudSettings.json
 ```
